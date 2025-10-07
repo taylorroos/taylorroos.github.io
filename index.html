@@ -1,345 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Currículo - Taylor Cristiano Soares Roos</title>
-    <style>
-        :root{
-            --white: #d9d9d9;
-            --black: #232323;
-            --grey: #bdbcae;
-        }
-        body{
-            margin: 0px;
-            background-color: var(--white);
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        .container{
-            background-color:var(--white);
-            min-height: 100dvh;
-            flex-direction: row;
-            display: flex;
-            margin-left:45px;
-            position: relative;
-        }
-        .container::before{
-            content: "";
-            position: absolute;
-            left:-45px;
-            height: 100px;
-            background-color: var(--grey);
-            width: 45px;
-        }
-        .left-sidebar{
-            background-color: var(--black);
-            flex: 2;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--white);
-        }
-        .left-sidebar img{
-            border-radius: 50%;
-            border: 2px solid var(--white);
-            max-width: 100%;
-        }
-        .left-sidebar a{
-            text-decoration: none;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-        .main{
-            background-color: var(--white);
-            flex: 8;
-            color: var(--black);
-        }
-        .nome{
-            min-height: 100px;
-            background-color: var(--grey);
-            padding: 0px 20px;
-            display: flex;
-            justify-content: start;
-            align-items: flex-end;
-            text-transform: uppercase;
-        }
-        .conteudo{
-            margin:0px 20px;
-            overflow: hidden;
-        }
-        .icon{
-            color:var(--white);
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        h4{
-            margin-bottom: 5px;
-            margin-top:40px;
-        }
-        .left-sidebar ul{
-            list-style: none;
-            padding: 0;
-            margin:0px;
-            text-align: center;
-        }
-        hr{
-            border-style: solid;
-            margin-bottom: 30px;
-        }
-        .itemf{
-            margin-bottom: 20px;
-        }
-        .itemf-title{
-            margin-top: 0px;
-            margin-bottom: 5px;
-        }
-        .itemf-title span{
-            font-weight: 400;
-        }
-        h2{
-            position: relative;
-        }
-        h2::after{
-            content: "";
-            position:absolute;
-            width: 100%;
-            height: 2px;
-            top:50%;
-            margin-left: 5px;
-            background-color:var(--black);
-
-        }
-
-        @media (max-width: 600px) {
-            .conteiner::before{
-                content: none;
-            }
-            .container{
-                margin-left:0px;
-                display: initial;
-            }
-            .left-sidebar{
-                overflow: hidden;
-                height: 100px;
-                transition: height 0.5s ease-in;
-            }
-            .left-sidebar:hover{
-                height: 100vh;
-            }
-            .left-sidebar img{
-                height: 100px;
-            }
-        }
-
-
-        /* icone email */
-        .gg-mail, .gg-mail::after {
-            display: block;
-            box-sizing: border-box;
-            height: 14px;
-            border: 2px solid
-        }
-
-        .gg-mail {
-            overflow: hidden;
-            transform: scale(var(1));
-            position: relative;
-            width: 18px;
-            border-radius: 2px
-        }
-
-        .gg-mail::after {
-            content: "";
-            position: absolute;
-            border-radius: 3px;
-            width: 14px;
-            transform: rotate(-45deg);
-            bottom: 3px;
-            left: 0
-        } 
-
-        /* icone telefone */
-        .gg-phone {
-            box-sizing: border-box;
-            position: relative;
-            display: block;
-            width: 22px;
-            height: 22px;
-            transform: scale(var(--ggs,1))
-        }
-
-        .gg-phone::after,
-        .gg-phone::before {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute
-        }
-
-        .gg-phone::after {
-            width: 18px;
-            height: 18px;
-            border-top-left-radius: 1px;
-            border-bottom-right-radius: 1px;
-            border-bottom-left-radius: 12px;
-            border-left: 4px solid;
-            border-bottom: 4px solid;
-            left: 2px;
-            bottom: 2px;
-            background:
-        linear-gradient(
-            to left,
-            currentColor 10px,
-            transparent 0
-        ) no-repeat right 11px/6px 4px,
-        linear-gradient(
-            to left,
-            currentColor 10px,
-            transparent 0
-        ) no-repeat -1px 0/4px 6px
-        }
-
-        .gg-phone::before {
-            width: 20px;
-            height: 20px;
-            border: 6px double;
-            border-top-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-            border-radius: 50%;
-            transform: rotate(-45deg);
-            bottom: 2px;
-            left: 2px
-        } 
-
-        /* icone pin map */
-        .gg-pin {
-            box-sizing: border-box;
-            position: relative;
-            display: block;
-            transform: rotate(45deg) scale(var(--ggs,1));
-            width: 18px;
-            height: 18px;
-            border-radius: 100% 100% 0 100%;
-            border: 2px solid;
-            margin-top: -4px
-        }
-
-        .gg-pin::before {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border: 2px solid;
-            top: 3px;
-            left: 3px;
-            border-radius: 40px
-        } 
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Endereços Local</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+<style>
+body { background-color: #f8f9fa; }
+.container { max-width: 900px; margin-top: 30px; }
+.card { margin-bottom: 10px; }
+.form-label { margin-top: 10px; }
+.map-link { text-decoration: none; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="left-sidebar">
-            <img src="https://media.licdn.com/dms/image/D4D03AQEzb_IZDnUuaA/profile-displayphoto-shrink_200_200/0/1709307994024?e=1726099200&v=beta&t=r_cdR2XOIdVLy8Q_E5aK0oNIm7O_7o-ui84SUiX0ikI">
-            <div class="icon">
-                <span class="gg-mail"></span>
-            </div>
-            <a href="mailto:taylor.roos08@gmail.com">taylor.roos08@gmail.com</a>
-            <div class="icon">
-                <span class="gg-phone"></span>
-            </div>
-            <a href="tel:+5549999479014">(49) 9 9947-9014</a>
-            <div class="icon">
-                <span class="gg-pin"></span>
-            </div>
-            <a href="#">Ipumirim-SC</a>
+<div class="container">
+  <h3 class="mb-4 text-center">📍 Cadastro de Endereços</h3>
 
-            <h4>Habilidades</h4>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>Vue.js</li>
-                <li>Laravel</li>
-                <li>PHP</li>
-                <li>Mysql</li>
-                <li>Git</li>
-            </ul>
+  <!-- Formulário -->
+  <div class="card p-3 mb-4">
+    <h5>Adicionar / Editar Endereço</h5>
+    <input id="editId" type="hidden">
 
-            <h4>Idiomas</h4>
-            <ul>
-                <li>Português - Nativo</li>
-                <li>Inglês - Básico</li>
-            </ul>
+    <label class="form-label">Moradores (um por linha, mínimo 1):</label>
+    <textarea id="moradores" class="form-control" rows="3"></textarea>
+
+    <label class="form-label">Telefones (um por linha, na mesma ordem dos moradores):</label>
+    <textarea id="telefones" class="form-control" rows="3"></textarea>
+
+    <label class="form-label">Link do Google Maps:</label>
+    <input id="link_maps" class="form-control" placeholder="Cole o link aqui">
+
+    <label class="form-label">Informações adicionais:</label>
+    <textarea id="informacoes" class="form-control" rows="3"></textarea>
+
+    <button id="btnSalvar" class="btn btn-success mt-3">💾 Salvar</button>
+    <button id="btnCancelar" class="btn btn-secondary mt-3 d-none">Cancelar</button>
+  </div>
+
+  <!-- Busca -->
+  <div class="input-group mb-3">
+    <input id="busca" class="form-control" placeholder="Buscar por qualquer informação...">
+    <button id="btnBuscar" class="btn btn-primary">🔍 Buscar</button>
+  </div>
+
+  <!-- Export / Import -->
+  <div class="mb-3 d-flex gap-2">
+    <button id="btnExportar" class="btn btn-info">📤 Exportar JSON</button>
+    <button id="btnImportar" class="btn btn-warning">📥 Importar JSON</button>
+    <input type="file" id="inputImportar" class="d-none" accept=".json">
+  </div>
+
+  <!-- Lista de endereços -->
+  <div id="listaEnderecos"></div>
+</div>
+
+<script>
+const STORAGE_KEY = 'enderecos_db';
+
+// ---------- Funções utilitárias ----------
+function carregarEnderecos() {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+}
+
+function salvarEnderecos(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function gerarId() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+function gerarLinkMaps(url) {
+  if (!url) return '';
+  return `<a href="${url}" target="_blank" class="map-link text-success fw-bold">🗺️ Ver no mapa</a>`;
+}
+
+function normalize(str) {
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function scoreMatch(entry, query) {
+  const q = normalize(query.trim());
+  if (!q) return 0;
+  let score = 0;
+  const text = [
+    (entry.moradores || []).join(' '),
+    (entry.telefones || []).join(' '),
+    entry.link_maps || '',
+    entry.informacoes || ''
+  ].join(' ');
+  const normText = normalize(text);
+
+  if (normText.includes(q)) {
+    score += 100;
+  } else {
+    const tokens = q.split(/\s+/);
+    tokens.forEach(t => { if (normText.includes(t)) score += 25; });
+  }
+  return score;
+}
+
+// ---------- Renderização ----------
+function renderizarLista(filtro = '') {
+  const lista = document.getElementById('listaEnderecos');
+  const enderecos = carregarEnderecos();
+  const filtrados = enderecos
+    .map(e => ({ ...e, score: scoreMatch(e, filtro) }))
+    .filter(e => e.score > 0 || !filtro)
+    .sort((a, b) => b.score - a.score);
+
+  lista.innerHTML = filtrados.length
+    ? filtrados.map(e => `
+      <div class="card p-3">
+        <h5>${(e.moradores || []).join(', ')}</h5>
+        <p class="mb-1"><strong>Telefones:</strong> ${(e.telefones || []).join(', ')}</p>
+        <p class="mb-1"><strong>Informações:</strong> ${e.informacoes || ''}</p>
+        <p class="mb-2">${gerarLinkMaps(e.link_maps)}</p>
+        <div class="d-flex gap-2">
+          <button class="btn btn-warning btn-sm" onclick="editarEndereco('${e.id}')">✏️ Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="excluirEndereco('${e.id}')">🗑️ Excluir</button>
+          <button class="btn btn-secondary btn-sm" onclick="copiarEndereco('${e.id}')">📋 Copiar</button>
         </div>
-        <div class="main">
-            <div class="nome">
-                <h1>Taylor Cristiano Soares Roos </h1>   
-            </div>
-            <div class="conteudo">
-                <h2>
-                    Objetivo
-                </h2>
-                <p>Busco uma oportunidade para aplicar todos os conhecimentos adquiridos no CST em Desenvolvimento Web e nos dois anos de experiência que tenho na área. Sou proativo e penso que posso me desenvolver como profissional e colaborar com o desenvolvimento da empresa.</p>
-                    
+      </div>
+    `).join('')
+    : '<p class="text-center text-muted">Nenhum endereço encontrado.</p>';
+}
 
-                <h2>Experiência profissional</h2>
-                <div class="itemf">
-                    <span>
-                        Outrubro 2019 - Janeiro 2020
-                    </span>
-                    <h4 class="itemf-title">Desenvolvedor Web <span>- D3T Softwares Personalizados - Concórdia/SC </span></h4>
-                    <ul>
-                        <li>Desenvolvimento de sites institucionais com painel administrativo.</li>
-                        <li>Integrações com API.</li>
-                        <li>Criação de Landingpages</li>
-                        <li>Manutenção em sites antigos.</li>
-                        <li>Implementação de novas funcionalidades.</li>
-                    </ul>
-                </div>
-                <div class="itemf">
-                    <span>
-                        Setembro 2017 - Outubro 2019
-                    </span>
-                    <h4 class="itemf-title">Desenvolvedor Web <span>- Ó DOIS GO - Concórdia/SC </span></h4>
-                    <ul>
-                        <li>Desenvolvimento de sites institucionais com painel administrativo.</li>
-                        <li>Integrações com API.</li>
-                        <li>Criação de Landingpages</li>
-                        <li>Manutenção em sites antigos.</li>
-                        <li>Implementação de novas funcionalidades.</li>
-                    </ul>
-                </div>
-                <div class="itemf">
-                    <span>
-                        Dezembro 2016 - Setembro 2017
-                    </span>
-                    <h4 class="itemf-title">Analista de Suporte Técnico <span>- Go-X Drive - Concórdia/SC </span></h4>
-                    <ul>
-                        <li>Suporte e Manutenção de e-mail.</li>
-                        <li>Atendimento ao cliente via telefone, ticket e e-mail.</li>
-                        <li>Configuração de e-mail no ambiente do cliente.</li>
-                    </ul>
-                </div>
+// ---------- CRUD ----------
+document.getElementById('btnSalvar').addEventListener('click', () => {
+  const id = document.getElementById('editId').value;
+  const moradores = document.getElementById('moradores').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const telefones = document.getElementById('telefones').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const link_maps = document.getElementById('link_maps').value.trim();
+  const informacoes = document.getElementById('informacoes').value.trim();
 
-                <h2>Formação Acadêmica</h2>
-                <div class="itemf">
-                    <span>
-                        Junho 2022 - Junho 2024
-                    </span>
-                    <h4 class="itemf-title">CST Desenvolvimento Web <span>- UNOPAR - Ipumirim/SC </span></h4>
-                </div>
-                <div class="itemf">
-                    <span>
-                        Janeiro 2016 - Dezembro 2017
-                    </span>
-                    <h4 class="itemf-title">Técnico em informática <span>- SENAI - Concórdia/SC </span></h4>
-                </div>
-            </div>
-        </div>
-    </div>
+  if (moradores.length < 1) return alert('Informe ao menos um morador.');
+  if (telefones.length < 1) return alert('Informe ao menos um telefone.');
+
+  const enderecos = carregarEnderecos();
+
+  if (id) {
+    const item = enderecos.find(e => e.id === id);
+    if (item) {
+      item.moradores = moradores;
+      item.telefones = telefones;
+      item.link_maps = link_maps;
+      item.informacoes = informacoes;
+      item.last_modified = new Date().toISOString();
+    }
+  } else {
+    enderecos.push({
+      id: gerarId(),
+      moradores,
+      telefones,
+      link_maps,
+      informacoes,
+      last_modified: new Date().toISOString()
+    });
+  }
+
+  salvarEnderecos(enderecos);
+  limparFormulario();
+  renderizarLista();
+});
+
+function editarEndereco(id) {
+  const e = carregarEnderecos().find(x => x.id === id);
+  if (!e) return;
+  document.getElementById('editId').value = e.id;
+  document.getElementById('moradores').value = (e.moradores || []).join('\n');
+  document.getElementById('telefones').value = (e.telefones || []).join('\n');
+  document.getElementById('link_maps').value = e.link_maps || '';
+  document.getElementById('informacoes').value = e.informacoes || '';
+  document.getElementById('btnSalvar').textContent = '💾 Atualizar';
+  document.getElementById('btnCancelar').classList.remove('d-none');
+}
+
+function excluirEndereco(id) {
+  if (!confirm('Deseja realmente excluir este endereço?')) return;
+  const enderecos = carregarEnderecos().filter(e => e.id !== id);
+  salvarEnderecos(enderecos);
+  renderizarLista();
+}
+
+function copiarEndereco(id) {
+    const e = carregarEnderecos().find(x => x.id === id);
+    if (!e) return;
+
+    // Estrutura de texto para WhatsApp
+    const texto = 
+    `🏠 Endereço
+    Moradores: ${ (e.moradores || []).join(', ') }
+    Telefones: ${ (e.telefones || []).join(', ') }
+    Informações adicionais: ${ e.informacoes || '-' }
+    Mapa: ${ e.link_maps || '-' }`;
+
+    navigator.clipboard.writeText(texto)
+        .then(() => alert('Informações copiadas para a área de transferência!'))
+        .catch(() => alert('Erro ao copiar as informações.'));
+}
+
+function limparFormulario() {
+  document.getElementById('editId').value = '';
+  document.getElementById('moradores').value = '';
+  document.getElementById('telefones').value = '';
+  document.getElementById('link_maps').value = '';
+  document.getElementById('informacoes').value = '';
+  document.getElementById('btnSalvar').textContent = '💾 Salvar';
+  document.getElementById('btnCancelar').classList.add('d-none');
+}
+
+document.getElementById('btnCancelar').addEventListener('click', limparFormulario);
+
+// ---------- Busca ----------
+document.getElementById('btnBuscar').addEventListener('click', () => {
+  const filtro = document.getElementById('busca').value;
+  renderizarLista(filtro);
+});
+
+document.getElementById('busca').addEventListener('keyup', e => {
+  if (e.key === 'Enter') document.getElementById('btnBuscar').click();
+});
+
+// ---------- Exportar / Importar ----------
+document.getElementById('btnExportar').addEventListener('click', () => {
+  const data = carregarEnderecos();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'enderecos.json';
+  a.click();
+});
+
+document.getElementById('btnImportar').addEventListener('click', () => {
+  document.getElementById('inputImportar').click();
+});
+
+document.getElementById('inputImportar').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = evt => {
+    try {
+      const importados = JSON.parse(evt.target.result);
+      if (!Array.isArray(importados)) throw new Error('Arquivo inválido');
+
+      const atuais = carregarEnderecos();
+      const merge = [...atuais];
+
+      importados.forEach(novo => {
+        if (!novo.id) return;
+        const i = merge.findIndex(a => a.id === novo.id);
+        if (i >= 0) {
+          const existente = merge[i];
+          if (novo.last_modified && existente.last_modified) {
+            if (new Date(novo.last_modified) > new Date(existente.last_modified)) {
+              merge[i] = novo;
+            }
+          } else {
+            merge[i] = novo;
+          }
+        } else {
+          merge.push(novo);
+        }
+      });
+
+      salvarEnderecos(merge);
+      renderizarLista();
+      alert('Importação concluída com sucesso!');
+    } catch(err) {
+      alert('Erro ao importar arquivo JSON.');
+      console.error(err);
+    }
+  };
+  reader.readAsText(file);
+});
+
+// ---------- Inicialização ----------
+renderizarLista();
+</script>
 </body>
 </html>
