@@ -12,14 +12,45 @@ body { background-color: #f8f9fa; }
 .card { margin-bottom: 10px; }
 .form-label { margin-top: 10px; }
 .map-link { text-decoration: none; }
+
+
+.my-nav{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-nav-title{
+    font-size: 35px;
+    font-weight: bold;
+    color:rgb(37, 36, 36);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.base-nav{
+    /* background-color:#a80303; */
+}
+
+
 </style>
 </head>
 <body>
+    <div class="base-nav">
+        <div class="container my-nav">
+            <img src="logo.jpg" alt="Logo" width="120" height="120" class="d-inline-block align-text-top"><br>
+            <div class="my-nav-title">
+                Corpo de Bombeiros Voluntários de Ipumirim
+            </div>
+        </div>
+    </div>
+
 <div class="container">
   <h3 class="mb-4 text-center">📍 Cadastro de Endereços</h3>
 
   <!-- Formulário -->
-  <div class="card p-3 mb-4">
+  <div id="cadastrarForm" class="collapse card p-3 mb-4">
     <h5>Adicionar / Editar Endereço</h5>
     <input id="editId" type="hidden">
 
@@ -47,6 +78,7 @@ body { background-color: #f8f9fa; }
 
   <!-- Export / Import -->
   <div class="mb-3 d-flex gap-2">
+    <button class="btn btn-success" type="button" data-bs-toggle="collapse" href="#cadastrarForm" aria-expanded="false" aria-controls="cadastrarForm">Cadastrar</button>
     <button id="btnExportar" class="btn btn-info">📤 Exportar JSON</button>
     <button id="btnImportar" class="btn btn-warning">📥 Importar JSON</button>
     <input type="file" id="inputImportar" class="d-none" accept=".json">
@@ -282,5 +314,6 @@ document.getElementById('inputImportar').addEventListener('change', e => {
 // ---------- Inicialização ----------
 renderizarLista();
 </script>
+<script src="script.js"></script>
 </body>
 </html>
